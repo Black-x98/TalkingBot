@@ -3,8 +3,8 @@ import speech_recognition as sr
 
 engine = tts.init()
 voices = engine.getProperty('voices')
-engine.setProperty('voice', voices[2].id)
-g_txt = "Hi, this is your talking Py_Bot."
+engine.setProperty('voice', voices[0].id)
+g_txt = "Hi, this is your talking Py-Bot."
 print(g_txt)
 r = sr.Recognizer()
 
@@ -27,51 +27,51 @@ with sr.Microphone() as source:
                 print(str)
                 str = "Hello Tariq."
                 tts.speak(str)
-                print("*Py_Bot*: " + str)
+                print("*Py-Bot*: " + str)
 
             elif "bye" in speech or "turn off" in speech:
                 str = "\n*You*: " + speech
                 print(str)
                 str = "Okay Tariq, I am shutting down, bye."
                 tts.speak(str)
-                print("*Py_Bot*: " + str)
+                print("*Py-Bot*: " + str)
                 break
 
-            elif "set" in speech and "name" in speech:
+            elif "set your name" in speech:
                 str = "\n*You*: " + speech
                 bot_name = str.split()[-1]
                 print(str)
                 str = "Okay Tariq, from now on my name is " + bot_name
                 tts.speak(str)
-                print("*Py_Bot*: " + str)
+                print("*Py-Bot*: " + str)
 
             elif "your name" in speech:
                 if bot_name=="blank":
                     str = "\n*You*: " + speech
                     print(str)
-                    str = "I haven't been given any personal name yet.\nBut you can call me Py_Bot for now."
+                    str = "I haven't been given any personal name yet.\nBut you can call me Py-Bot for now."
                     tts.speak(str)
-                    print("*Py_Bot*: " + str)
+                    print("*Py-Bot*: " + str)
                 else:
                     str = "\n*You*: " + speech
                     print(str)
                     str = "My name is " + bot_name
                     tts.speak(str)
-                    print("*Py_Bot*: " + str)
+                    print("*Py-Bot*: " + str)
 
             elif "language" in speech:
                 str = "\n*You*: " + speech
                 print(str)
                 str = "I am coded using Python."
                 tts.speak(str)
-                print("*Py_Bot*: " + str)
+                print("*Py-Bot*: " + str)
 
             elif "how are you" in speech:
                 str = "\n*You*: " + speech
                 print(str)
                 str = "I am just a chatbot, that doesn't apply for me.\nBut I hope you are doing well."
                 tts.speak(str)
-                print("*Py_Bot*: " + str)
+                print("*Py-Bot*: " + str)
             else:
                 str = "\nYou said: " + speech
                 tts.speak("You said: " + speech)
